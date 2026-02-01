@@ -1,10 +1,10 @@
 import streamlit as st
 import numpy as np
-import joblib
 from joblib import load
+
+# Load model and scaler
 model = load("model.pkl")
 scaler = load("scaler.pkl")
-
 
 st.title("Boston Housing Price Prediction")
 
@@ -17,4 +17,4 @@ if st.button("Predict"):
     X = np.array([[crim, rm, lstat, ptratio]])
     X = scaler.transform(X)
     pred = model.predict(X)
-    st.success(pred[0])
+    st.success(f"Predicted House Price: {pred[0]:.2f}")
