@@ -1,0 +1,19 @@
+import streamlit as st
+import numpy as np
+import joblib
+
+model = joblib.load("model.pkl")
+scaler = joblib.load("scaler.pkl")
+
+st.title("Boston Housing Price Prediction")
+
+crim = st.number_input("CRIM")
+rm = st.number_input("RM")
+lstat = st.number_input("LSTAT")
+ptratio = st.number_input("PTRATIO")
+
+if st.button("Predict"):
+    X = np.array([[crim, rm, lstat, ptratio]])
+    X = scaler.transform(X)
+    pred = model.predict(X)
+    st.success(pred[0])
