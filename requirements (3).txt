@@ -1,8 +1,6 @@
+streamlit
+numpy
 pandas
-tabula-py
 scikit-learn
 xgboost
-matplotlib
-seaborn
 joblib
-streamlit
