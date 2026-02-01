@@ -1,9 +1,10 @@
 import streamlit as st
 import numpy as np
 import joblib
+from joblib import load
+model = load("model.pkl")
+scaler = load("scaler.pkl")
 
-model = joblib.load("model.pkl")
-scaler = joblib.load("scaler.pkl")
 
 st.title("Boston Housing Price Prediction")
 
